@@ -18,7 +18,7 @@ const Home = () => {
       <div className="inventory-section">
         <h1>total items: {items.length}</h1>
         {items.map((item) => (
-          <Inventory key={item.id} item={item}></Inventory>
+          <Inventory key={item._id} item={item}></Inventory>
         ))}
         <button onClick={() => navigate(`/manageinventory`)}>Manage All</button>
       </div>
