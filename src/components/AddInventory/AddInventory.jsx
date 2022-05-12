@@ -22,6 +22,11 @@ const AddInventory = () => {
             {...register("price", { min: 0 })}
           />
           <input
+            type="number"
+            placeholder="quantity "
+            {...register("quantity", { min: 0 })}
+          />
+          <input
             type="url"
             placeholder="photo url"
             {...register("photo url", {})}
@@ -29,30 +34,6 @@ const AddInventory = () => {
 
           <input type="submit" />
         </form>
-        {/* <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            placeholder="name"
-            {...register("name", { required: true, maxLength: 80 })}
-          />
-          <input
-            type="text"
-            placeholder="description"
-            {...register("description", { required: true, maxLength: 100 })}
-          />
-          <input
-            type="number"
-            placeholder="price"
-            {...register("price", { required: true })}
-          />
-          <input
-            type="text"
-            placeholder="photo url"
-            {...register("img", { required: true })}
-          />
-
-          <input type="submit" value="add service" />
-        </form> */}
       </div>
     </div>
   );
