@@ -3,13 +3,21 @@ import Inventory from "../Inventory/Inventory";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
-
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     fetch("http://localhost:5001/inventory")
       .then((res) => res.json())
-      .then((data) => setItems(data));
+      .then((data) => {
+        setItems(data);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div>
