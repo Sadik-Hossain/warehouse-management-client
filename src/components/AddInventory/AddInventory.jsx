@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "./AddInventory.css";
 const AddInventory = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
     const url = `http://localhost:5001/inventory/`;
@@ -15,6 +15,7 @@ const AddInventory = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    reset();
   };
 
   return (
