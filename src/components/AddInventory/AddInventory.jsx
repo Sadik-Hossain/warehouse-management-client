@@ -3,7 +3,19 @@ import { useForm } from "react-hook-form";
 import "./AddInventory.css";
 const AddInventory = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    const url = `http://localhost:5001/inventory/`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
 
   return (
     <div>
@@ -31,11 +43,7 @@ const AddInventory = () => {
             placeholder="quantity "
             {...register("quantity", { min: 0 })}
           />
-          <input
-            type="url"
-            placeholder="photo url"
-            {...register("photo url", {})}
-          />
+          <input type="url" placeholder="photo url" {...register("img", {})} />
 
           <input type="submit" />
         </form>
