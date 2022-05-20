@@ -142,10 +142,25 @@ const Register = () => {
 
           <input type="submit" value="register" />
         </form>
-        <p>
-          already a member?
-          <Link to="/login">Login</Link>
-        </p>
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            alignItems: "center",
+          }}
+        >
+          <p style={{ fontSize: "1.2rem" }}>already a member?</p>
+          <Link
+            style={{
+              color: "cadetblue",
+              textDecoration: "none",
+              fontSize: "1.2rem",
+            }}
+            to="/login"
+          >
+            Login
+          </Link>
+        </div>
         {/* 
         //* divider
         */}
@@ -162,7 +177,29 @@ const Register = () => {
         {/* 
           //* ============== Google sign in ===============
           */}
-        <button onClick={() => signInWithGoogle()}>Continue with google</button>
+        <button
+          style={{
+            margin: "1rem  auto",
+            display: "block",
+          }}
+          onClick={() => signInWithGoogle()}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            <p>Continue with google</p>
+            <img
+              style={{ width: "32px", height: "32px" }}
+              src="https://i.ibb.co/J7RvT3j/google.png"
+              alt=""
+            />
+          </div>
+        </button>
       </div>
     </div>
   );

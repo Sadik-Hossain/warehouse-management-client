@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Inventory from "../Inventory/Inventory";
 import { useNavigate } from "react-router-dom";
+import Banner from "./Banner";
 const Home = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
@@ -21,8 +22,9 @@ const Home = () => {
 
   return (
     <div>
-      <h1>this is home</h1>
-      <div className="banner"></div>
+      <div className="banner">
+        <Banner />
+      </div>
       <div className="inventory-section">
         <h1>total items: {items.length}</h1>
         {items.map((item) => (

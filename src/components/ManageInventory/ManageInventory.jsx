@@ -60,6 +60,7 @@ const ManageInventory = () => {
               alt=""
             />
             <h3>{item.name}</h3>
+            <h4>{item?.email}</h4>
           </div>
           <button onClick={() => handledelete(item._id)}>Delete</button>
         </div>

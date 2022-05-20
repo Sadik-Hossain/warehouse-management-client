@@ -1,7 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useAuthState } from "react-firebase-hooks/auth";
 import "./AddInventory.css";
+import auth from "../../firebase.init";
+
 const AddInventory = () => {
+  const [user] = useAuthState(auth);
   const {
     register,
     formState: { errors },
@@ -90,29 +94,14 @@ const AddInventory = () => {
 */}
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <label style={{ fontWeight: "bold" }}>Email</label>
-            <label style={{ color: "red" }}>
-              {errors.email?.type === "required" && (
-                <small>{errors.email.message}</small>
-              )}
-              {errors.email?.type === "pattern" && (
-                <small>{errors.email.message}</small>
-              )}
-            </label>
           </div>
           <input
             type="email"
             placeholder="email"
-            {...register("email", {
-              required: {
-                value: true,
-                message: "email required",
-              },
-              pattern: {
-                value:
-                  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                message: "provide a valid email",
-              },
-            })}
+            value={user?.email}
+            readOnly
+            style={{ cursor: "no-drop" }}
+            {...register("email", {})}
           />
           {/* 
 //*=================== Price ==================

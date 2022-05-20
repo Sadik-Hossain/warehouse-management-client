@@ -128,10 +128,25 @@ const Login = () => {
 
         <input type="submit" value="Login" />
       </form>
-      <p>
-        New to Doctor Portal?
-        <Link to="/register">Create New Account</Link>
-      </p>
+      <div
+        style={{
+          display: "flex",
+          gap: "1rem",
+          alignItems: "center",
+        }}
+      >
+        <p style={{ fontSize: "1.2rem" }}>New Here?</p>
+        <Link
+          style={{
+            color: "cadetblue",
+            textDecoration: "none",
+            fontSize: "1.2rem",
+          }}
+          to="/register"
+        >
+          Register
+        </Link>
+      </div>
       <div style={{ display: "flex", alignItems: "center" }}>
         <div style={{ width: "50%", height: "3px", background: "#000" }}></div>
         <p style={{ margin: "0 1rem" }}>Or</p>
@@ -142,10 +157,27 @@ const Login = () => {
           //* ============== Google sign in ===============
           */}
       <button
-        style={{ padding: "1rem", margin: "1rem  auto", display: "block" }}
+        style={{
+          margin: "1rem  auto",
+          display: "block",
+        }}
         onClick={() => signInWithGoogle()}
       >
-        Continue with google
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          <p>Continue with google</p>
+          <img
+            style={{ width: "32px", height: "32px" }}
+            src="https://i.ibb.co/J7RvT3j/google.png"
+            alt=""
+          />
+        </div>
       </button>
     </div>
   );
