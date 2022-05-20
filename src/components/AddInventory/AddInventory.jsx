@@ -17,6 +17,11 @@ const AddInventory = () => {
             {...register("description", {})}
           />
           <input
+            type="text"
+            placeholder="supplier"
+            {...register("supplier", {})}
+          />
+          <input
             type="number"
             placeholder="price "
             {...register("price", { min: 0 })}

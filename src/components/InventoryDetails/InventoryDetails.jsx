@@ -6,23 +6,25 @@ const InventoryDetails = () => {
   const { itemId } = useParams();
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(false);
+  const [loading1, setLoading1] = useState(false);
   const { name, img, description, price, quantity } = detail;
 
-  const [quantityX, setQuantityX] = useState(0);
   const url = `http://localhost:5001/inventory/${itemId}`;
 
   useEffect(() => {
-    setLoading(true);
+    setLoading1(true);
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setDetail(data);
-        setLoading(false);
+        setLoading1(false);
       });
   }, []);
-  if (loading) {
+  if (loading1) {
     return <h1>Loading...</h1>;
   }
+
+  //* =========== deliver funcion =====================
   const handleDeliver = () => {
     const newQuantity = Number(quantity) - 1;
     console.log(newQuantity);
@@ -39,10 +41,13 @@ const InventoryDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("success", data);
+        //* load updated data
+        setLoading(true);
         fetch(url)
           .then((res) => res.json())
           .then((data) => {
             setDetail(data);
+            setLoading(false);
           });
       });
   };
@@ -65,10 +70,14 @@ const InventoryDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("success", data);
+        e.target.reset();
+        //* load updated data
+        setLoading(true);
         fetch(url)
           .then((res) => res.json())
           .then((data) => {
             setDetail(data);
+            setLoading(false);
           });
       });
   };
@@ -78,50 +87,27 @@ const InventoryDetails = () => {
       <img src={img} alt="" />
       <h2>{name}</h2>
       <p>Price: {price}</p>
-      <p>available : {quantity}</p>
+      <p>available : {loading ? "updating..." : quantity}</p>
       <p>
         <small>{description}</small>
       </p>
       {/* 
-      //* ============= buy service =======================
+      //* ============= deliver service =======================
       */}
-      <button onClick={handleDeliver}>Buy</button>
+      <button disabled={quantity < 1} onClick={handleDeliver}>
+        Deliver
+      </button>
       {/* 
       //* ============ restock form ==================
       */}
-      <form onSubmit={handleAdd}>
-        <input type="number" name="number" />
-        <input type="submit" value="restock" />
-      </form>
+      <div className="register-form">
+        <form onSubmit={handleAdd}>
+          <input type="number" name="number" pattern="^[0-9]" min="1" />
+          <input type="submit" value="restock" />
+        </form>
+      </div>
     </div>
   );
 };
 
 export default InventoryDetails;
-
-{
-  /* 
-      //*================ stock form =====================
-      */
-}
-{
-  /* 
-        const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => console.log(data);
-      <div className="register-form">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="number"
-            placeholder="quantity"
-            {...register("quantity", { required: true, min: 1 })}
-          />
-
-          <input type="submit" value="Stock Item" />
-        </form>
-      </div> */
-}
