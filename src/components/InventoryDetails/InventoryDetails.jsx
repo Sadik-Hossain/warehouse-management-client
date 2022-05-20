@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useForm } from "react-hook-form";
-
+import { useParams } from "react-router-dom";
+import "./InventoryDetails.css";
 const InventoryDetails = () => {
   const { itemId } = useParams();
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(false);
   const [loading1, setLoading1] = useState(false);
-  const { name, img, description, price, quantity } = detail;
+  const { name, img, description, price, quantity, supplier } = detail;
 
   const url = `http://localhost:5001/inventory/${itemId}`;
 
@@ -83,19 +82,38 @@ const InventoryDetails = () => {
   };
   return (
     <div>
-      <h1>welcome to inventory details: {itemId}</h1>
-      <img src={img} alt="" />
-      <h2>{name}</h2>
-      <p>Price: {price}</p>
-      <p>available : {loading ? "updating..." : quantity}</p>
-      <p>
-        <small>{description}</small>
-      </p>
+      <div className="detail-card">
+        <div>
+          <img src={img} alt="" />
+        </div>
+        <div>
+          <h2>{name}</h2>
+          <p className="detail-text">item id: {itemId}</p>
+          <p className="detail-text">Price: {price}</p>
+          <p className="detail-text">
+            available : {loading ? "updating..." : quantity}
+          </p>
+          <p className="detail-text">
+            description : <small>{description}</small>
+          </p>
+          <p className="detail-text">supplier: {supplier}</p>
+        </div>
+      </div>
       {/* 
       //* ============= deliver service =======================
       */}
-      <button disabled={quantity < 1} onClick={handleDeliver}>
-        Deliver
+      <button
+        style={{
+          display: "block",
+          margin: "0 auto",
+          background: "#000",
+          color: "white",
+          padding: "0 2rem",
+        }}
+        disabled={quantity < 1}
+        onClick={handleDeliver}
+      >
+        <p> Deliver</p>
       </button>
       {/* 
       //* ============ restock form ==================

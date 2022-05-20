@@ -14,6 +14,7 @@ const Header = () => {
       style={{
         display: "flex",
         justifyContent: "space-around",
+        alignItems: "center",
         background: "#000",
         padding: "1rem 0",
       }}
@@ -41,7 +42,9 @@ const Header = () => {
       )}
       {user ? (
         //* logout method
-        <button onClick={logout}>Logout</button>
+        <button className="login" onClick={logout}>
+          Logout
+        </button>
       ) : (
         //* login redirect
         <Link className="link" to="/login">

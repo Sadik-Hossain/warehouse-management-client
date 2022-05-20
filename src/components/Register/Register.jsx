@@ -140,7 +140,11 @@ const Register = () => {
 
           {signInError}
 
-          <input type="submit" value="register" />
+          <input
+            style={{ background: "#000", color: "white" }}
+            type="submit"
+            value="register"
+          />
         </form>
         <div
           style={{
@@ -181,6 +185,9 @@ const Register = () => {
           style={{
             margin: "1rem  auto",
             display: "block",
+            background: "#000",
+            color: "white",
+            borderRadius: "1rem",
           }}
           onClick={() => signInWithGoogle()}
         >

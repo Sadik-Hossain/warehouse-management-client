@@ -62,7 +62,16 @@ const ManageInventory = () => {
             <h3>{item.name}</h3>
             <h4>{item?.email}</h4>
           </div>
-          <button onClick={() => handledelete(item._id)}>Delete</button>
+          <button
+            style={{
+              background: "#df4759",
+              padding: "0 1rem",
+              color: "white",
+            }}
+            onClick={() => handledelete(item._id)}
+          >
+            Delete
+          </button>
         </div>
       ))}
     </div>

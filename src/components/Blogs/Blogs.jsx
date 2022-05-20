@@ -6,21 +6,20 @@ const Blogs = () => {
       <div
         style={{
           background: "#fff",
-          margin: "1rem 0",
           padding: " 1rem",
           borderRadius: "1rem",
         }}
       >
         <h1> 1. Difference between javascript and nodejs?</h1>
         <p style={{ fontSize: "1.5rem" }}>
-          <span style={{ fontWeight: "bold" }}> NodeJS :</span> NodeJS is a
+          <span className="detail-text"> NodeJS :</span> NodeJS is a
           cross-platform and opensource Javascript runtime environment that
           allows the javascript to be run on the server-side. Nodejs allows
           Javascript code to run outside the browser. Nodejs comes with a lot of
           modules and mostly used in server-side.
         </p>
         <p style={{ fontSize: "1.5rem" }}>
-          <span style={{ fontWeight: "bold" }}>JavaScript : </span>
+          <span className="detail-text">JavaScript : </span>
           Javascript is a high-level,multi-paradigm programming language. that
           is used for writing scripts on the website. it's capable enough to add
           HTML and play with the DOM. Mainly used on clientside.

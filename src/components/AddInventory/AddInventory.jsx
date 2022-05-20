@@ -45,7 +45,7 @@ const AddInventory = () => {
             add new items
           </h1>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <label style={{ fontWeight: "bold" }}>Item Name</label>
+            <label className="detail-text">Item Name</label>
             <label style={{ color: "red" }}>
               {errors.name?.type === "required" && (
                 <small>{errors.name.message}</small>
@@ -62,7 +62,7 @@ const AddInventory = () => {
               },
             })}
           />
-          <label style={{ fontWeight: "bold" }}>Description</label>
+          <label className="detail-text">Description</label>
           <input
             type="text"
             placeholder="description"
@@ -72,7 +72,7 @@ const AddInventory = () => {
 //*=================== supplier info ==================
 */}
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <label style={{ fontWeight: "bold" }}>Supplier info</label>
+            <label className="detail-text">Supplier info</label>
             <label style={{ color: "red" }}>
               {errors.supplier?.type === "required" && (
                 <small>{errors.supplier.message}</small>
@@ -93,7 +93,7 @@ const AddInventory = () => {
 //*=================== Email ==================
 */}
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <label style={{ fontWeight: "bold" }}>Email</label>
+            <label className="detail-text">Email</label>
           </div>
           <input
             type="email"
@@ -107,7 +107,7 @@ const AddInventory = () => {
 //*=================== Price ==================
 */}
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <label style={{ fontWeight: "bold" }}>Price</label>
+            <label className="detail-text">Price</label>
             <label style={{ color: "red" }}>
               {errors.price?.type === "required" && (
                 <small>{errors.price.message}</small>
@@ -132,7 +132,7 @@ const AddInventory = () => {
 //*=================== Quantity ==================
 */}
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <label style={{ fontWeight: "bold" }}>Quantity</label>
+            <label className="detail-text">Quantity</label>
             <label style={{ color: "red" }}>
               {errors.quantity?.type === "required" && (
                 <small>{errors.quantity.message}</small>
@@ -156,10 +156,19 @@ const AddInventory = () => {
           {/* 
 //*=================== img url==================
 */}
-          <label style={{ fontWeight: "bold" }}>Item Image URL</label>
+          <label className="detail-text">Item Image URL</label>
           <input type="url" placeholder="photo url" {...register("img", {})} />
 
-          <input type="submit" />
+          <input
+            style={{
+              background: "#000",
+              color: "yellow",
+              height: "3rem",
+              marginTop: "2rem",
+            }}
+            type="submit"
+            value="Add Item"
+          />
         </form>
       </div>
     </div>

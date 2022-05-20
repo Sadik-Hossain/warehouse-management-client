@@ -1,0 +1,15 @@
+.detail-text {
+  font-weight: bold;
+}
+.detail-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2rem 0;
+}
+@media only screen and (max-width: 425px) {
+  .detail-card {
+    display: flex;
+    flex-direction: column;
+  }
+}

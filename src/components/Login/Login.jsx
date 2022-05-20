@@ -126,7 +126,11 @@ const Login = () => {
 
         {signInError}
 
-        <input type="submit" value="Login" />
+        <input
+          style={{ background: "#000", color: "white" }}
+          type="submit"
+          value="Login"
+        />
       </form>
       <div
         style={{
@@ -147,6 +151,9 @@ const Login = () => {
           Register
         </Link>
       </div>
+      {/* 
+      //* divider
+      */}
       <div style={{ display: "flex", alignItems: "center" }}>
         <div style={{ width: "50%", height: "3px", background: "#000" }}></div>
         <p style={{ margin: "0 1rem" }}>Or</p>
@@ -160,6 +167,9 @@ const Login = () => {
         style={{
           margin: "1rem  auto",
           display: "block",
+          background: "#000",
+          color: "white",
+          borderRadius: "1rem",
         }}
         onClick={() => signInWithGoogle()}
       >
