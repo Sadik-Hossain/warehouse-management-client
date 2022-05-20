@@ -5,7 +5,7 @@ const Blogs = () => {
     <div style={{ textAlign: "start" }}>
       <div
         style={{
-          background: "#efefef",
+          background: "#fff",
           margin: "1rem 0",
           padding: " 1rem",
           borderRadius: "1rem",
@@ -48,7 +48,7 @@ const Blogs = () => {
           horizontally scalable.
         </p>
         <hr />
-        <h1> 3. What is the purpose of jwt and how does it work?</h1>
+        <h1> 4. What is the purpose of jwt and how does it work?</h1>
         <p style={{ fontSize: "1.5rem" }}>
           JWT is an open standard used to share security information between two
           parties — a client and a server. Each JWT contains encoded JSON

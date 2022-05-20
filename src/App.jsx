@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
@@ -10,10 +10,12 @@ import Register from "./components/Register/Register";
 import AddInventory from "./components/AddInventory/AddInventory";
 import ManageInventory from "./components/ManageInventory/ManageInventory";
 import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
+import MyItems from "./components/MyItems.jsx/MyItems";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 
 function App() {
   return (
-    <div className="App">
+    <div style={{ background: "#efefef" }} className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -23,8 +25,30 @@ function App() {
           path="/inventory/:itemId"
           element={<InventoryDetails></InventoryDetails>}
         ></Route>
-        <Route path="/addinventory" element={<AddInventory />}></Route>
-        <Route path="/manageinventory" element={<ManageInventory />}></Route>
+        <Route
+          path="/addinventory"
+          element={
+            <RequireAuth>
+              <AddInventory />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/manageinventory"
+          element={
+            <RequireAuth>
+              <ManageInventory />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/myitems"
+          element={
+            <RequireAuth>
+              <MyItems />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<NotFound />}></Route>

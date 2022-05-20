@@ -44,6 +44,7 @@ const ManageInventory = () => {
         <div
           key={item._id}
           style={{
+            background: "#fff",
             width: "80%",
             margin: "1rem auto",
             padding: "1rem",
