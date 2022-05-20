@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ManageInventory = () => {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -74,6 +76,18 @@ const ManageInventory = () => {
           </button>
         </div>
       ))}
+      <button
+        style={{
+          display: "block",
+          margin: "2rem auto",
+          padding: "1rem",
+          background: "#000",
+          color: "white",
+        }}
+        onClick={() => navigate(`/addinventory`)}
+      >
+        Add Item
+      </button>
     </div>
   );
 };

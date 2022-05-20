@@ -89,7 +89,7 @@ const InventoryDetails = () => {
         <div>
           <h2>{name}</h2>
           <p className="detail-text">item id: {itemId}</p>
-          <p className="detail-text">Price: {price}</p>
+          <p className="detail-text">price: ${price}</p>
           <p className="detail-text">
             available : {loading ? "updating..." : quantity}
           </p>
@@ -121,7 +121,11 @@ const InventoryDetails = () => {
       <div className="register-form">
         <form onSubmit={handleAdd}>
           <input type="number" name="number" pattern="^[0-9]" min="1" />
-          <input type="submit" value="restock" />
+          <input
+            style={{ background: "#000", color: "white" }}
+            type="submit"
+            value="restock"
+          />
         </form>
       </div>
     </div>

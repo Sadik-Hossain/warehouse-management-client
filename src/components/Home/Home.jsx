@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Inventory from "../Inventory/Inventory";
 import { useNavigate } from "react-router-dom";
 import Banner from "./Banner";
+import "./Home.css";
 const Home = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
@@ -26,12 +27,22 @@ const Home = () => {
         <Banner />
       </div>
       <div className="inventory-section">
-        <h1>total items: {items.length}</h1>
         {items.map((item) => (
           <Inventory key={item._id} item={item}></Inventory>
         ))}
-        <button onClick={() => navigate(`/manageinventory`)}>Manage All</button>
       </div>
+      <button
+        style={{
+          display: "block",
+          margin: "2rem auto",
+          padding: "1rem",
+          background: "#000",
+          color: "white",
+        }}
+        onClick={() => navigate(`/manageinventory`)}
+      >
+        Manage All
+      </button>
     </div>
   );
 };

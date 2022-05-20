@@ -9,10 +9,15 @@ const Inventory = ({ item }) => {
     navigate(`/inventory/${id}`);
   };
   return (
-    <div>
+    <div
+      style={{
+        border: "2px solid",
+        padding: "1rem",
+      }}
+    >
       <img src={img} alt="" />
       <h2>{name}</h2>
-      <p>Price: {price}</p>
+      <p>price: ${price}</p>
       <p>
         <small>{description}</small>
       </p>
