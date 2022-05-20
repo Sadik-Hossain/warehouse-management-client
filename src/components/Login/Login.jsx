@@ -35,8 +35,10 @@ const Login = () => {
   let signInError;
 
   if (error || gError) {
-    gError = (
-      <p className="text-red-500 ">{error?.message || gError?.message}</p>
+    signInError = (
+      <p style={{ color: "red", textAlign: "center" }}>
+        {error?.message || gError?.message}
+      </p>
     );
   }
   // * passing true for showing loading always [styling purpose]
