@@ -7,6 +7,7 @@ import {
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const Register = () => {
   const {
@@ -31,7 +32,7 @@ const Register = () => {
   }
 
   if (loading || gLoading || updating) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
 
   if (user || gUser) {

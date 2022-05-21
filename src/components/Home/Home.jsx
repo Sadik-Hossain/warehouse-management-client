@@ -3,6 +3,7 @@ import Inventory from "../Inventory/Inventory";
 import { useNavigate } from "react-router-dom";
 import Banner from "./Banner";
 import "./Home.css";
+import Spinner from "../Spinner/Spinner";
 const Home = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
@@ -18,7 +19,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
 
   return (

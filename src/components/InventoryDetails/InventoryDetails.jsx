@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 import "./InventoryDetails.css";
 const InventoryDetails = () => {
   const { itemId } = useParams();
@@ -20,7 +21,7 @@ const InventoryDetails = () => {
       });
   }, []);
   if (loading1) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
 
   //* =========== deliver funcion =====================

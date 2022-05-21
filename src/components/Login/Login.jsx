@@ -6,6 +6,7 @@ import {
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const Login = () => {
   const {
@@ -46,7 +47,7 @@ const Login = () => {
   //   return <Loading />;
   // }
   if (loading || gLoading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
 
   const onSubmit = (data) => {

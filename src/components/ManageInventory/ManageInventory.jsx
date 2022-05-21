@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const ManageInventory = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const ManageInventory = () => {
       });
   }, []);
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
   const handledelete = (id) => {
     const proceed = window.confirm("are you sure?");

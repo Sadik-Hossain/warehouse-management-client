@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import Spinner from "../Spinner/Spinner";
 
 const MyItems = () => {
-  const [user] = useAuthState(auth);
+  const [user, uLoading] = useAuthState(auth);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -34,6 +35,13 @@ const MyItems = () => {
         });
     }
   };
+  if (uLoading) {
+    return <Spinner />;
+  }
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <div>
       <h1>My items:{items.length} </h1>
