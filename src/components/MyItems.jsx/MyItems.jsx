@@ -10,9 +10,13 @@ const MyItems = () => {
   useEffect(() => {
     const email = user.email;
     const url = `http://localhost:5001/myitem?email=${email}`;
+    setLoading(true);
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setItems(data));
+      .then((data) => {
+        setItems(data);
+        setLoading(false);
+      });
   }, [user]);
   const handledelete = (id, email) => {
     const proceed = window.confirm("are you sure?");
@@ -35,48 +39,34 @@ const MyItems = () => {
         });
     }
   };
-  if (uLoading) {
-    return <Spinner />;
-  }
-  if (loading) {
+  if (uLoading || loading) {
     return <Spinner />;
   }
 
   return (
     <div>
-      <h1>My items:{items.length} </h1>
+      <h1 style={{ textAlign: "center", textTransform: "capitalize" }}>
+        My items: {items.length}{" "}
+      </h1>
       {items.map((item) => (
-        <div
-          key={item._id}
-          style={{
-            background: "#fff",
-            width: "80%",
-            margin: "1rem auto",
-            padding: "1rem",
-            border: "2px solid #dedede",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", gap: "2rem" }}>
+        <div key={item._id} className="card-container">
+          <div className="card-left">
             <img
               style={{ width: "64px", height: "64px" }}
               src={item.img}
               alt=""
             />
             <h3>{item.name}</h3>
-            <h4>{item?.email}</h4>
+            <h4>quantity: {item?.quantity}</h4>
           </div>
-          <button
-            style={{
-              background: "#df4759",
-              padding: "0 1rem",
-              color: "white",
-            }}
-            onClick={() => handledelete(item._id, item.email)}
-          >
-            Delete
-          </button>
+          <div className="card-right">
+            <button
+              className="danger-btn"
+              onClick={() => handledelete(item._id, item.email)}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       ))}
     </div>

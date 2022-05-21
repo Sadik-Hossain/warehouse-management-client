@@ -85,14 +85,14 @@ const InventoryDetails = () => {
     <div>
       <div className="detail-card">
         <div>
-          <img src={img} alt="" />
+          <img style={{ width: "100%", height: "auto" }} src={img} alt="" />
         </div>
-        <div>
+        <div style={{ padding: "0 1rem" }}>
           <h2>{name}</h2>
           <p className="detail-text">item id: {itemId}</p>
           <p className="detail-text">price: ${price}</p>
           <p className="detail-text">
-            available : {loading ? "updating..." : quantity}
+            quantity : {loading ? "updating..." : quantity}
           </p>
           <p className="detail-text">
             description : <small>{description}</small>

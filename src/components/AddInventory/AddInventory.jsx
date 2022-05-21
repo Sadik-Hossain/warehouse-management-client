@@ -162,7 +162,7 @@ const AddInventory = () => {
           <input
             style={{
               background: "#000",
-              color: "yellow",
+              color: "white",
               height: "3rem",
               marginTop: "2rem",
             }}

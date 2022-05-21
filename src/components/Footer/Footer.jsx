@@ -5,7 +5,7 @@ const Footer = () => {
   const urlAppStore = `https://i.ibb.co/tmQ6hnh/app-store.png`;
   return (
     <div className="footer-container">
-      <h1 style={{ color: "yellow" }}>Furniture Warehouse</h1>
+      <h1 style={{ color: "white" }}>Furniture Warehouse</h1>
       <p>
         <small>
           copyright

@@ -28,18 +28,12 @@ const Home = () => {
         <Banner />
       </div>
       <div className="inventory-section">
-        {items.map((item) => (
+        {items.slice(0, 6).map((item) => (
           <Inventory key={item._id} item={item}></Inventory>
         ))}
       </div>
       <button
-        style={{
-          display: "block",
-          margin: "2rem auto",
-          padding: "1rem",
-          background: "#000",
-          color: "white",
-        }}
+        className="primary-btn"
         onClick={() => navigate(`/manageinventory`)}
       >
         Manage All

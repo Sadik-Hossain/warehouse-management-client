@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
-
+import "./ManageInventory.css";
 const ManageInventory = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
@@ -39,54 +39,46 @@ const ManageInventory = () => {
         });
     }
   };
+  const navigateToInventoryDetail = (id) => {
+    navigate(`/inventory/${id}`);
+  };
   return (
     <div>
-      <h1>Manage inventory</h1>
-      <h1>total items: {items.length}</h1>
+      <h1 style={{ textAlign: "center", textTransform: "capitalize" }}>
+        total items: {items.length}
+      </h1>
       {items.map((item) => (
-        <div
-          key={item._id}
-          style={{
-            background: "#fff",
-            width: "80%",
-            margin: "1rem auto",
-            padding: "1rem",
-            border: "2px solid #dedede",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", gap: "2rem" }}>
+        <div key={item._id} className="card-container">
+          <div className="card-left">
             <img
               style={{ width: "64px", height: "64px" }}
               src={item.img}
               alt=""
             />
             <h3>{item.name}</h3>
-            <h4>{item?.email}</h4>
+            <h4> quantity: {item?.quantity}</h4>
           </div>
-          <button
-            style={{
-              background: "#df4759",
-              padding: "0 1rem",
-              color: "white",
-            }}
-            onClick={() => handledelete(item._id)}
-          >
-            Delete
-          </button>
+          <div className="card-right">
+            <button
+              className="primary-btn"
+              onClick={() => navigateToInventoryDetail(item._id)}
+            >
+              Update
+            </button>
+            <button
+              className="danger-btn"
+              onClick={() => handledelete(item._id)}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       ))}
-      <button
-        style={{
-          display: "block",
-          margin: "2rem auto",
-          padding: "1rem",
-          background: "#000",
-          color: "white",
-        }}
-        onClick={() => navigate(`/addinventory`)}
-      >
+      {/* 
+//* add new item button
+*/}
+
+      <button className="primary-btn" onClick={() => navigate(`/addinventory`)}>
         Add Item
       </button>
     </div>
