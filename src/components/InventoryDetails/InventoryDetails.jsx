@@ -84,8 +84,8 @@ const InventoryDetails = () => {
   return (
     <div>
       <div className="detail-card">
-        <div>
-          <img style={{ width: "100%", height: "auto" }} src={img} alt="" />
+        <div style={{ flexGrow: "2" }}>
+          <img style={{ width: "50%", height: "auto" }} src={img} alt="" />
         </div>
         <div style={{ padding: "0 1rem" }}>
           <h2>{name}</h2>
