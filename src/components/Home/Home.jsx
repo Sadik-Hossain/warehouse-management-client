@@ -10,7 +10,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5001/inventory")
+    fetch("https://rocky-headland-28054.herokuapp.com/inventory")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);

@@ -12,7 +12,9 @@ import ManageInventory from "./components/ManageInventory/ManageInventory";
 import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 import MyItems from "./components/MyItems.jsx/MyItems";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
+import { ToastContainer } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div style={{ background: "#efefef" }} className="App">
@@ -57,6 +59,8 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
+      <ToastContainer />
+
       <Footer />
     </div>
   );

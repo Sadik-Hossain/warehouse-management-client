@@ -8,7 +8,7 @@ const ManageInventory = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5001/inventory")
+    fetch("https://rocky-headland-28054.herokuapp.com/inventory")
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -22,7 +22,7 @@ const ManageInventory = () => {
     const proceed = window.confirm("are you sure?");
     if (proceed) {
       console.log(id);
-      const url = `http://localhost:5001/inventory/${id}`;
+      const url = `https://rocky-headland-28054.herokuapp.com/inventory/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -30,7 +30,7 @@ const ManageInventory = () => {
         .then((data) => {
           console.log(data);
           setLoading(true);
-          fetch("http://localhost:5001/inventory")
+          fetch("https://rocky-headland-28054.herokuapp.com/inventory")
             .then((res) => res.json())
             .then((data) => {
               setItems(data);

@@ -9,7 +9,7 @@ const MyItems = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const email = user.email;
-    const url = `http://localhost:5001/myitem?email=${email}`;
+    const url = `https://rocky-headland-28054.herokuapp.com/myitem?email=${email}`;
     setLoading(true);
     fetch(url)
       .then((res) => res.json())
@@ -22,7 +22,7 @@ const MyItems = () => {
     const proceed = window.confirm("are you sure?");
     if (proceed) {
       console.log(id);
-      const url = `http://localhost:5001/inventory/${id}`;
+      const url = `https://rocky-headland-28054.herokuapp.com/inventory/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -30,7 +30,9 @@ const MyItems = () => {
         .then((data) => {
           console.log(data);
           setLoading(true);
-          fetch(`http://localhost:5001/myitem?email=${email}`)
+          fetch(
+            `https://rocky-headland-28054.herokuapp.com/myitem?email=${email}`
+          )
             .then((res) => res.json())
             .then((data) => {
               setItems(data);

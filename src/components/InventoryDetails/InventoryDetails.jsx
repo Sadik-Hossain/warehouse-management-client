@@ -9,7 +9,7 @@ const InventoryDetails = () => {
   const [loading1, setLoading1] = useState(false);
   const { name, img, description, price, quantity, supplier } = detail;
 
-  const url = `http://localhost:5001/inventory/${itemId}`;
+  const url = `https://rocky-headland-28054.herokuapp.com/inventory/${itemId}`;
 
   useEffect(() => {
     setLoading1(true);

@@ -4,10 +4,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import "./Header.css";
+import { toast } from "react-toastify";
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
+    toast("Logged Out Successfully");
   };
   return (
     <nav

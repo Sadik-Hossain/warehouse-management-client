@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./AddInventory.css";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const AddInventory = () => {
   const [user] = useAuthState(auth);
@@ -14,7 +15,7 @@ const AddInventory = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    const url = `http://localhost:5001/inventory/`;
+    const url = `https://rocky-headland-28054.herokuapp.com/inventory/`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -25,6 +26,7 @@ const AddInventory = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
     reset();
+    toast("Item Added Successfully");
   };
 
   return (
